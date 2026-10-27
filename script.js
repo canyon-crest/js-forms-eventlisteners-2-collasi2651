@@ -17,7 +17,10 @@
 
 // STEP 1: Get the "Shout" button by its ID ("btnShout")
 //         using document.getElementById()
+document.getElementById('btnShout').addEventListener('click',function(){
 
+    outShout.innerHTML=shoutInput.value.toUpperCase()+"!";
+})
 // STEP 2: Add a click event listener to the button.
 //         Inside the listener function:
 //         a) Get the text from the input with ID "shoutInput"
@@ -39,7 +42,35 @@
 //   - Toppings (checkboxes): $0.50 each
 //   - Service (dropdown): Dine In $0, Take Out $1.50,
 //     Delivery $3.00
+document.getElementById('btncalc').addEventListener('click',function(){
 
+    const sizes= document.getElementsbyName("rg");
+    let size=0;
+    for (let i=0; i<sizes.length; i++){
+        if (sizes[i].checked){
+           size=parseFloat(sizes[i].value);
+        }
+    }
+    topping=0
+    const toppings= document.getElementsByName('cb');
+    for (let i=0; i<toppings.length; i++){
+        if (toppings[i].checked){
+            topping+=0.5
+        }
+    }
+    const fees= document.getElementById('serviceselect').value;
+    fee=0;
+    if (fees="dinein"){
+fee+=
+    }
+    else if(fees="takeout") {
+fee+=
+    }
+    else{
+fee+=
+    };
+myPara.innerHTML=size+topping+fee;
+}
 // STEP 3: Get the "Calculate Total" button by ID ("btnCalc")
 //         Add a click event listener.
 //         Inside the listener:
@@ -82,4 +113,4 @@
 //         b) Set the Large radio (id "r3") to checked = true
 //         c) Uncheck ALL topping checkboxes (loop through them)
 //         d) Set the service dropdown value to "dinein"
-//         e) Set the output paragraph innerHTML to ""
+//         e) Set the output paragraph innerHTML to"""
