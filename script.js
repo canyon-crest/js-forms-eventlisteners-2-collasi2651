@@ -42,9 +42,9 @@ document.getElementById('btnShout').addEventListener('click',function(){
 //   - Toppings (checkboxes): $0.50 each
 //   - Service (dropdown): Dine In $0, Take Out $1.50,
 //     Delivery $3.00
-document.getElementById('btncalc').addEventListener('click',function(){
+document.getElementById('btnCalc').addEventListener('click',function(){
 
-    const sizes= document.getElementsbyName("rg");
+    const sizes= document.getElementsByName("rg");
     let size=0;
     for (let i=0; i<sizes.length; i++){
         if (sizes[i].checked){
@@ -58,7 +58,7 @@ document.getElementById('btncalc').addEventListener('click',function(){
             topping+=0.5
         }
     }
-    const fees= document.getElementById('serviceselect').value;
+    const fees= document.getElementById('serviceSelect').value;
     let fee=0;
     if (fees=="dinein"){
 fee+=0;
@@ -69,8 +69,10 @@ fee+=1.5;
     else{
 fee+=3;
     }
-let total =size+topping+fee;
-myPara.innerHTML=total.toFixed(2);
+const total =size+topping+fee;
+
+let name = document.getElementById("myInput").value;
+myPara.innerHTML= name+ ", your total is $"+ total.toFixed(2);
 });
 // STEP 3: Get the "Calculate Total" button by ID ("btnCalc")
 //         Add a click event listener.
@@ -106,6 +108,13 @@ myPara.innerHTML=total.toFixed(2);
 //      Example: "Alice, your total is $13.50"
 //      If name is empty, use "Customer" as the default.
 
+document.getElementById("clearBtn").addEventListener("click", function(){
+    document.getElementById("myInput").value="";
+    document.getElementById("r3").checked=true;
+    const toppings = document.getElementsByName("cb"); for (let i=0; i<toppings.length; i++)
+        toppings[i].checked=false;
+        document.getElementById("serviceSelect").value="dinein";
+    });
 
 // STEP 4: Get the "Clear" button by ID ("clearBtn")
 //         Add a click event listener.
@@ -113,4 +122,4 @@ myPara.innerHTML=total.toFixed(2);
 //         a) Set the name input value to ""
 //         b) Set the Large radio (id "r3") to checked = true
 //         c) Uncheck ALL topping checkboxes (loop through them)
-//         d) Set the service dropdown value to "dinein
+//         d) Set the service dropdown value to "dinein)
