@@ -108,15 +108,18 @@ myPara.innerHTML= name+ ", your total is $"+ total.toFixed(2);
 //      Example: "Alice, your total is $13.50"
 //      If name is empty, use "Customer" as the default.
 
-document.getElementById("clearBtn").addEventListener('click', function(){
-    document.getElementById("myInput").value="";
-    document.getElementById("r3").checked=true;
+
+document.getElementById("clearBtn").addEventListener("click", function () {
+    document.getElementById("myInput").value = "";
+    document.getElementById("r3").checked = true;
+
     const toppings = document.getElementsByName("cb");
-     for (let i=0; i<toppings.length; i++){
-        toppings[i].checked=false;
+    for (let i = 0; i < toppings.length; i++) {
+        toppings[i].checked = false;
     }
-        document.getElementById("serviceSelect").value="dinein";
-    });
+
+    document.getElementById("serviceSelect").value = "dinein";
+    document.getElementById("myPara").innerHTML = "";});
 
 // STEP 4: Get the "Clear" button by ID ("clearBtn")
 //         Add a click event listener.
